@@ -1,5 +1,7 @@
 # broccoli-elm-css
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dustinfarris/broccoli-elm-css.svg)](https://greenkeeper.io/)
+
 Compile your elm-css stylesheets for broccoli.
 
 ## Installation
