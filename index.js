@@ -8,21 +8,24 @@ ElmCssPlugin.prototype = Object.create(Plugin.prototype);
 ElmCssPlugin.constructor = ElmCssPlugin;
 
 
-function ElmCssPlugin(inputNodes, _options) {
-  var options = _options || {};
+function ElmCssPlugin(inputNodes, options) {
+  var options = options || {};
 
   if (!(this instanceof ElmCssPlugin)) {
     return new ElmCssPlugin(options);
   }
 
   Plugin.call(this, [inputNodes]);
+
+  this.stylesheets = options.stylesheets || "Stylesheets.elm";
+  this.root = options.root || process.cwd();
 }
 
 
 ElmCssPlugin.prototype.build = function() {
   return elmCss(
-    process.cwd(),
-    "elm/Stylesheets.elm",
+    this.root,
+    this.stylesheets,
     this.outputPath,
     "Stylesheets",
     "files",
